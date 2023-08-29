@@ -3,23 +3,23 @@ const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
 
-let active = 1;
+let currActive = 1;
 
 next.addEventListener('click', () => {
-  active++;
+  currActive++;
 
-  if (active > circles.length) {
-    active = circles.length;
+  if (currActive > circles.length) {
+    currActive = circles.length;
   }
 
   update();
 });
 
 prev.addEventListener('click', () => {
-  active--;
+  currActive--;
 
-  if (active < 1) {
-    active = 1;
+  if (currActive < 1) {
+    currActive = 1;
   }
 
   update();
@@ -27,7 +27,7 @@ prev.addEventListener('click', () => {
 
 function update() {
   circles.forEach((circle, idx) => {
-    if (idx < active) {
+    if (idx < currActive) {
       circle.classList.add('active');
     } else {
       circle.classList.remove('active');
@@ -38,9 +38,9 @@ function update() {
 
   steps.style.width = ((actives.length - 1) / (circles.length - 1)) * 100 + '%';
 
-  if (active === 1) {
+  if (currActive === 1) {
     prev.disabled = true;
-  } else if (active === circles.length) {
+  } else if (currActive === circles.length) {
     next.disabled = true;
   } else {
     prev.disabled = false;
