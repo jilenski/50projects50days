@@ -37,9 +37,10 @@ body {
   height: 120px;
   width: 100px;
   border: 1px solid #eee;
-  margin: 3px;
+  margin: 5px;
   text-align: center;
   font-weight: 300;
+  -moz-appearance: textfield;
 }
 
 .code::-webkit-outer-spin-button,
